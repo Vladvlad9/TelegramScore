@@ -5,6 +5,7 @@ from aiogram.utils.callback_data import CallbackData
 from aiogram.utils.exceptions import BadRequest
 from aiogram.types.web_app_info import WebAppInfo
 
+from config import CONFIG
 from loader import bot
 
 MainPage_CB = CallbackData("MainPage", "target", "id", "editId")
@@ -21,7 +22,7 @@ class Main:
             inline_keyboard=[
                 [
                     InlineKeyboardButton(text="Открыть сайт",
-                                         web_app=WebAppInfo(url="https://github.com/aiogram/aiogram/issues/891")
+                                         web_app=WebAppInfo(url=CONFIG.WEBAPPURL)
                                          )
                 ]
             ]
