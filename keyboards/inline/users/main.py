@@ -22,7 +22,7 @@ class Main:
             inline_keyboard=[
                 [
                     InlineKeyboardButton(text="Открыть сайт",
-                                         web_app=WebAppInfo(url=CONFIG.WEBAPPURL)
+                                         web_app=WebAppInfo(url=CONFIG.WEBAPPURL + "/form")
                                          )
                 ]
             ]

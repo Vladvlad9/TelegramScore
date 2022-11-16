@@ -4,6 +4,6 @@
     "ADMINS": [381252111]
   },
   "DATABASE": "postgres:postgres@localhost:5432/impuls",
-  "WEBAPPURL": "https://starlit-faloodeh-d05fb5.netlify.app/"
+  "WEBAPPURL": "https://starlit-faloodeh-d05fb5.netlify.app"
 
 }
