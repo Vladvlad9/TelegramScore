@@ -3,6 +3,7 @@
     "TOKEN": "5647871601:AAHPJIAPkOMyhHRJ66tglK_Zmob9NAN0DQ4",
     "ADMINS": [381252111]
   },
-  "DATABASE": "postgres:postgres@localhost:5432/impuls"
+  "DATABASE": "postgres:postgres@localhost:5432/impuls",
+  "WEBAPPURL": "https://starlit-faloodeh-d05fb5.netlify.app/"
 
 }
