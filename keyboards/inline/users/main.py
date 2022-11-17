@@ -13,7 +13,7 @@ MainPage_CB = CallbackData("MainPage", "target", "id", "editId")
 
 class Main:
     @staticmethod
-    async def start_kb() -> InlineKeyboardMarkup:
+    async def start_ikb() -> InlineKeyboardMarkup:
         """
         Самая стартовая клавиатура
         :return:
@@ -22,8 +22,23 @@ class Main:
             inline_keyboard=[
                 [
                     InlineKeyboardButton(text="Открыть сайт",
-                                         web_app=WebAppInfo(url=CONFIG.WEBAPPURL + "/form")
+                                         web_app=WebAppInfo(url=CONFIG.WEBAPPURL)
                                          )
+                ]
+            ]
+        )
+
+    @staticmethod
+    async def open_site_kb() -> ReplyKeyboardMarkup:
+        return ReplyKeyboardMarkup(
+            row_width=2,
+            resize_keyboard=True,
+            one_time_keyboard=True,
+            keyboard=[
+                [
+                    KeyboardButton(text='Сайт',
+                                   web_app=WebAppInfo(url=CONFIG.WEBAPPURL + "/form"),
+                                   callback_data=MainPage_CB.new("Site", 0, 0))
                 ]
             ]
         )
@@ -33,7 +48,11 @@ class Main:
                               state: FSMContext = None) -> None:
         if callback:
             if callback.data.startswith('MainPage'):
-                pass
+                data = MainPage_CB.parse(callback_data=callback.data)
+
+                if data.get("target") == "Site":
+                    print('is work')
+
         if message:
             await message.delete()
 
@@ -46,5 +65,6 @@ class Main:
                 pass
 
             if state:
-                pass
+                if await state.get_state() == "MainState:SiteState":
+                    pass
 
